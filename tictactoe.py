@@ -48,16 +48,16 @@
 # X +- 4
 
 # Functions we need:
-# print_board() Liam
-# check_win() Malte
-# check_draw() Malte
-# player_move() Liam
-# computer_move() Liam
-# check_valid_move() Malte
-# reset_game() Liam
+# print_board() Liam ✅
+# check_win() Malte ✅
+# check_draw() Malte ✅
+# player_move() Liam ✅
+# computer_move() Liam ✅
+# check_valid_move() Malte ✅
+# reset_game() Liam ✅
 # player_choose_xor_o() Ehsan
-# main_game_loop() Malte
-# win count for player and computer Liam
+# main_game_loop() Malte ✅
+# win count for player and computer Liam ✅
 
 import os
 import random
