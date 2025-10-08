@@ -68,6 +68,12 @@ def check_win():
             return True
     return False
 
+def validate_move(field):
+    if field < 1 or field > 9:
+        return False
+    if field in board:
+        return True
+    return False
 
 board = [
     [1, 2, 3],
