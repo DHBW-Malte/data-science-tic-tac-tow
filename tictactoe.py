@@ -47,6 +47,15 @@
 # X +- 3
 # X +- 4
 
+# Functions we need:
+# print_board()
+# check_win()
+# check_draw()
+# player_move()
+# computer_move()
+# check_valid_move()
+# reset_game()
+
 import os
 
 nestedCombinations = [
@@ -60,27 +69,15 @@ nestedCombinations = [
     [3,5,7]
     ]
 
-grid = {
-    "one": [None, 1],
-    "two": [None, 2],
-    "three": [None, 3],
-    "four": [None, 4],
-    "five": [None, 5],
-    "six": [None, 6],
-    "seven": [None, 7],
-    "eight": [None, 8],
-    "nine": [None, 9]
-}
-
 board = [
-    [grid["one"], grid["two"], grid["three"]],
-    [grid["four"], grid["five"], grid["six"]],
-    [grid["seven"], grid["eight"], grid["nine"]]
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
 ]
 
 def print_board(board):
     os.system('cls' if os.name == 'nt' else 'clear')
-    rows = [' | '.join(str(cell[1]) for cell in row) for row in board]
+    rows = [' | '.join(str(cell) for cell in row) for row in board]
     print('\n---------\n'.join(rows))
 
 print_board(board)
