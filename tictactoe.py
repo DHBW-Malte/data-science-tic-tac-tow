@@ -67,6 +67,8 @@ board = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 winning_combinations = [[1,2,3],[4,5,6],[7,8,9],[1,4,7],[3,6,9],[1,5,9],[2,5,8],[3,5,7]]
 player_symbol = "X"
 computer_symbol = "O"
+p_win = 0
+c_win = 0
 
 def check_win():
     for comb in winning_combinations:
@@ -125,6 +127,7 @@ if __name__ == "__main__":
         winner = check_win()
         if winner:
             print("Player wins!")
+            p_win += 1
             break
         if check_draw():
             print("It's a draw.")
@@ -135,7 +138,9 @@ if __name__ == "__main__":
         winner = check_win()
         if winner:
             print("Computer wins!")
+            c_win += 1
             break
         if check_draw():
             print("It's a draw.")
             break
+    print(f"Score - Player: {p_win}, Computer: {c_win}")
