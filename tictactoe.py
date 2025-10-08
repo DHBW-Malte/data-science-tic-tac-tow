@@ -71,15 +71,16 @@ def check_win():
 
 
 board = [
-    [1, 2, 3],
-    [4, 5, 6],
-    [7, 8, 9]
+    [1, 2, 3, 4, 5, 6, 7, 8, 9]
 ]
 
 def print_board(board):
     os.system('cls' if os.name == 'nt' else 'clear')
-    rows = [' | '.join(str(cell) for cell in row) for row in board]
-    print('\n---------\n'.join(rows))
+    flat = board[0]
+    for i in range(0, len(flat), 3):
+        print(' | '.join(str(x) for x in flat[i:i+3]))
+        if i < 6:
+            print('---------')
 
 def player_move():
     move = input("Your move: ")
