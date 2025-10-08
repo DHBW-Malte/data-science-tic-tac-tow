@@ -122,40 +122,59 @@ def computer_move():
 def reset_board():
     board[:] = initial_board
 
+
+def player_choose_xor_o():
+    global player_symbol, computer_symbol
+    while True:
+        choice = input("Choose your symbol (X/O): ").upper()
+        if choice in ['X', 'O']:
+            player_symbol = choice
+            computer_symbol = 'O' if choice == 'X' else 'X'
+            break
+        else:
+            print("Invalid choice! Please choose X or O.")
+            
 if __name__ == "__main__":
     while True:
-        while True:
-            # Here we can ask the player for the symbol
-            
-            print_board(board)
-            
-            # Player moves
-            player_move()
-            winner = check_win()
-            if winner:
-                print("Player wins!")
-                p_win += 1
-                break
-            if check_draw():
-                print("It's a draw.")
-                break
+        # 1) ask symbol before each game
+        player_choose_xor_o()
+        print_board(board)
 
-            # Computer moves
-            computer_move()
-            winner = check_win()
-            if winner:
-                print("Computer wins!")
-                c_win += 1
-                break
-            if check_draw():
-                print("It's a draw.")
-                break
-            
-        # scoreboard
+        # 2) who starts?
+        current = "player" if player_symbol == "X" else "computer"
+
+        while True:
+            if current == "player":
+                player_move()
+                winner = check_win()
+                if winner:
+                    print("Player wins!")
+                    p_win += 1
+                    break
+                if check_draw():
+                    print("It's a draw.")
+                    break
+                current = "computer"
+            else:
+                computer_move()
+                winner = check_win()
+                if winner:
+                    print("Computer wins!")
+                    c_win += 1
+                    break
+                if check_draw():
+                    print("It's a draw.")
+                    break
+                current = "player"
+
+        # 3) scoreboard
         print(f"Score - Player: {p_win}, Computer: {c_win}")
 
-        # reset game
-        reset = input("Play again? (y/n): ").lower()
-        if reset != 'y':
+        # 4) reset or exit
+        reset = input("Play again? (y/n): ").strip().lower()
+        if reset != "y":
             break
         reset_board()
+
+
+
