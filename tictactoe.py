@@ -53,9 +53,10 @@
 # check_draw()
 # player_move() Liam
 # computer_move() Liam
-# check_valid_move()
+# check_valid_move() Malte
 # reset_game()
 # player_choose_xor_o() Ehsan
+# main_game_loop()
 
 import os
 import random
