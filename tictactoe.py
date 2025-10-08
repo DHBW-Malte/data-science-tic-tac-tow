@@ -48,7 +48,6 @@
 # X +- 4
 
 import os
-import time
 
 nestedCombinations = [
     [1,2,3],
@@ -61,14 +60,27 @@ nestedCombinations = [
     [3,5,7]
     ]
 
+grid = {
+    "one": [None, 1],
+    "two": [None, 2],
+    "three": [None, 3],
+    "four": [None, 4],
+    "five": [None, 5],
+    "six": [None, 6],
+    "seven": [None, 7],
+    "eight": [None, 8],
+    "nine": [None, 9]
+}
+
 board = [
-    ['1', '2', '3'],
-    ['4', '5', '6'],
-    ['7', '8', '9']
+    [grid["one"], grid["two"], grid["three"]],
+    [grid["four"], grid["five"], grid["six"]],
+    [grid["seven"], grid["eight"], grid["nine"]]
 ]
+
 def print_board(board):
     os.system('cls' if os.name == 'nt' else 'clear')
-    rows = [' | '.join(r) for r in board]
-    print('\n'.join(rows))
+    rows = [' | '.join(str(cell[1]) for cell in row) for row in board]
+    print('\n---------\n'.join(rows))
 
 print_board(board)
