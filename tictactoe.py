@@ -62,9 +62,20 @@ import random
 
 winningCombinations = [[1,2,3],[4,5,6],[7,8,9],[1,4,7],[3,6,9],[1,5,9],[2,5,8],[3,5,7]]
 
+def player_choose_xor_o():
+    while True:
+        choice = input("Do you want to be X or O? ").strip().upper()
+        if choice in ("X", "O"):
+            print(f"You chose {choice}.")
+            computer_choice = "O" if choice == "X" else "X"
+            print(f"Computer will be {computer_choice}.")
+            return {"player": choice, "computer": computer_choice}
+        else:
+            print("Invalid choice. Please choose X or O.")  
+            
 def check_win():
     for comb in winningCombinations:
-        a,b,c = combo
+        a,b,c = comb
         if board[a] == board[b] == board[c] and board[a] in ("X", "O"):
             return True
     return False
@@ -84,6 +95,8 @@ def print_board(board):
         print(' | '.join(str(x) for x in board[i:i+3]))
         if i < 6:
             print('---------')
+
+    player_choose_xor_o()
 
 def player_move():
     move = input("Your move: ")
