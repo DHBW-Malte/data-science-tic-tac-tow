@@ -63,7 +63,8 @@ import os
 import random
 
 # Global variables
-board = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+initial_board = list(range(1, 10))
+board = initial_board.copy()
 winning_combinations = [[1,2,3],[4,5,6],[7,8,9],[1,4,7],[3,6,9],[1,5,9],[2,5,8],[3,5,7]]
 player_symbol = "X"
 computer_symbol = "O"
@@ -118,29 +119,43 @@ def computer_move():
     board[move - 1] = computer_symbol
     print_board(board)
 
-if __name__ == "__main__":
-    print_board(board)
-    # Here we can ask the player for the symbol
-    while True:
-        # Player moves
-        player_move()
-        winner = check_win()
-        if winner:
-            print("Player wins!")
-            p_win += 1
-            break
-        if check_draw():
-            print("It's a draw.")
-            break
+def reset_board():
+    board[:] = initial_board
 
-        # Computer moves
-        computer_move()
-        winner = check_win()
-        if winner:
-            print("Computer wins!")
-            c_win += 1
+if __name__ == "__main__":
+    while True:
+        while True:
+            # Here we can ask the player for the symbol
+            
+            print_board(board)
+            
+            # Player moves
+            player_move()
+            winner = check_win()
+            if winner:
+                print("Player wins!")
+                p_win += 1
+                break
+            if check_draw():
+                print("It's a draw.")
+                break
+
+            # Computer moves
+            computer_move()
+            winner = check_win()
+            if winner:
+                print("Computer wins!")
+                c_win += 1
+                break
+            if check_draw():
+                print("It's a draw.")
+                break
+            
+        # scoreboard
+        print(f"Score - Player: {p_win}, Computer: {c_win}")
+
+        # reset game
+        reset = input("Play again? (y/n): ").lower()
+        if reset != 'y':
             break
-        if check_draw():
-            print("It's a draw.")
-            break
-    print(f"Score - Player: {p_win}, Computer: {c_win}")
+        reset_board()
