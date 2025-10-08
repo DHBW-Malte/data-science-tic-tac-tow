@@ -76,15 +76,12 @@ def validate_move(field):
         return True
     return False
 
-board = [
-    [1, 2, 3, 4, 5, 6, 7, 8, 9]
-]
+board = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 def print_board(board):
     os.system('cls' if os.name == 'nt' else 'clear')
-    flat = board[0]
-    for i in range(0, len(flat), 3):
-        print(' | '.join(str(x) for x in flat[i:i+3]))
+    for i in range(0, len(board), 3):
+        print(' | '.join(str(x) for x in board[i:i+3]))
         if i < 6:
             print('---------')
 
