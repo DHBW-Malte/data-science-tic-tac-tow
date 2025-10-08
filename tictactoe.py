@@ -56,23 +56,26 @@
 # check_valid_move() Malte
 # reset_game()
 # player_choose_xor_o() Ehsan
-# main_game_loop()
+# main_game_loop() Malte
 
 import os
 import random
 
 # Global variables
 board = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-winningCombinations = [[1,2,3],[4,5,6],[7,8,9],[1,4,7],[3,6,9],[1,5,9],[2,5,8],[3,5,7]]
+winning_combinations = [[1,2,3],[4,5,6],[7,8,9],[1,4,7],[3,6,9],[1,5,9],[2,5,8],[3,5,7]]
 player_symbol = "X"
 computer_symbol = "O"
 
 def check_win():
     for comb in winning_combinations:
         a, b, c = comb
-        if board_[a-1] == board_[b-1] == board_[c-1] and board_[a-1] in ("X", "O"):
-            return board_[a]
+        if board[a-1] == board[b-1] == board[c-1] and board[a-1] in ("X", "O"):
+            return board[a]
     return None
+
+def check_draw() -> bool:
+    return all(not isinstance(x, int) for x in board)
 
 def validate_move(field):
     if field < 1 or field > 9:
@@ -112,6 +115,26 @@ def computer_move():
     board[move - 1] = computer_symbol
     print_board(board)
 
-print_board(board)
+if __name__ == "__main__":
+    print_board(board)
+    # Here we can ask the player for the symbol
+    while True:
+        # Player moves
+        player_move()
+        winner = check_win()
+        if winner:
+            print("Player wins!")
+            break
+        if check_draw():
+            print("It's a draw.")
+            break
 
-
+        # Computer moves
+        computer_move()
+        winner = check_win()
+        if winner:
+            print("Computer wins!")
+            break
+        if check_draw():
+            print("It's a draw.")
+            break
