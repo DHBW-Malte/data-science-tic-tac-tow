@@ -48,13 +48,14 @@
 # X +- 4
 
 # Functions we need:
-# print_board()
-# check_win()
+# print_board() Liam
+# check_win() Malte
 # check_draw()
 # player_move()
 # computer_move()
 # check_valid_move()
 # reset_game()
+# player_choose_xor_o() Ehsan
 
 import os
 
