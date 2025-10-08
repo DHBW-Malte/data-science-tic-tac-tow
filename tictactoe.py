@@ -32,26 +32,43 @@
 
 # win combinations:
 
-numberCheck = [X,2,3,4,5,6,7,8,9]
+# numberCheck = [X,2,3,4,5,6,7,8,9]
 
-one = null
-two = null
+# one = null
+# two = null
 
-nestedCombinations = [[X,X,X],
+
+
+# one == two & one == three
+# one == four & one == seven
+
+# X +- 1
+# X +- 2 
+# X +- 3
+# X +- 4
+
+import os
+import time
+
+nestedCombinations = [
+    [1,2,3],
     [4,5,6],
     [7,8,9],
-    [X,4,7],
-    [4,5,6],
+    [1,4,7],
     [3,6,9],
     [1,5,9],
     [2,5,8],
     [3,5,7]
     ]
 
-one == two & one == three
-one == four & one == seven
+board = [
+    ['1', '2', '3'],
+    ['4', '5', '6'],
+    ['7', '8', '9']
+]
+def print_board(board):
+    os.system('cls' if os.name == 'nt' else 'clear')
+    rows = [' | '.join(r) for r in board]
+    print('\n'.join(rows))
 
-X +- 1
-X +- 2 
-X +- 3
-X +- 4
+print_board(board)
