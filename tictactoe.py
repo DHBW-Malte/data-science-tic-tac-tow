@@ -54,9 +54,10 @@
 # player_move() Liam
 # computer_move() Liam
 # check_valid_move() Malte
-# reset_game()
+# reset_game() Liam
 # player_choose_xor_o() Ehsan
 # main_game_loop() Malte
+# win count for player and computer Liam
 
 import os
 import random
