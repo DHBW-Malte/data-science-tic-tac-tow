@@ -1,0 +1,57 @@
+# Pseudocode:
+
+# Begin
+# Print the game board
+# Prepare nested Array to store the game
+# Aking player to choose X or O
+# Start game loop (9 rounds)
+    # Asking player X for a field
+    # Check: Is field already taken and if the field is inside of the game board (using numberCheck array)
+        # If check failed asking player X again for a field
+        # If check was successful place X on the field
+    # Check: Did player X wins
+        # Check the winning combination
+            # If player wins, stop loop
+            # If not continue
+        # If the player didn't win continue
+    # Computer makes a random move
+    # Check: Is field already taken and if the field is inside of the game board (using numberCheck array)
+        # If check failed asking computer X again for a field
+        # If check was successful place X on the field
+    # Check if computer wins
+        # If computer wins, stop loop
+        # If not continue
+    # Checking for a free number
+# End of loop
+# Printing winning, draw or loosing message
+# Asking user to play again
+
+#   X | X | X
+#   4 | 5 | 6
+#   7 | 8 | 9
+
+# win combinations:
+
+numberCheck = [X,2,3,4,5,6,7,8,9]
+
+one = null
+two = null
+
+nestedCombinations = [[X,X,X],
+    [4,5,6],
+    [7,8,9],
+    [X,4,7],
+    [4,5,6],
+    [3,6,9],
+    [1,5,9],
+    [2,5,8],
+    [3,5,7]
+    ]
+
+one == two & one == three
+one == four & one == seven
+
+X +- 1
+X +- 2 
+X +- 3
+X +- 4
