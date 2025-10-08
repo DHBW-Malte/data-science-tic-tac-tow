@@ -60,14 +60,18 @@
 import os
 import random
 
+# Global variables
+board = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 winningCombinations = [[1,2,3],[4,5,6],[7,8,9],[1,4,7],[3,6,9],[1,5,9],[2,5,8],[3,5,7]]
+player_symbol = "X"
+computer_symbol = "O"
 
 def check_win():
-    for comb in winningCombinations:
-        a,b,c = combo
-        if board[a] == board[b] == board[c] and board[a] in ("X", "O"):
-            return True
-    return False
+    for comb in winning_combinations:
+        a, b, c = comb
+        if board_[a-1] == board_[b-1] == board_[c-1] and board_[a-1] in ("X", "O"):
+            return board_[a]
+    return None
 
 def validate_move(field):
     if field < 1 or field > 9:
@@ -76,21 +80,35 @@ def validate_move(field):
         return True
     return False
 
-board = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-
 def print_board(board):
     os.system('cls' if os.name == 'nt' else 'clear')
+    
+    print("\nTic-Tac-Toe\n")
     for i in range(0, len(board), 3):
         print(' | '.join(str(x) for x in board[i:i+3]))
         if i < 6:
-            print('---------')
+            print('-' * 9)
+    print()
 
 def player_move():
-    move = input("Your move: ")
-    print("\033[A\033[K", end="")
-    return move
+    while True:
+        try:
+            move = int(input("Your move (1–9): "))
+            if validate_move(move):
+                board[move - 1] = player_symbol
+                print_board(board)
+                break
+            else:
+                print("Invalid move! Field already taken or out of range.")
+        except ValueError:
+            print("Please enter a valid number between 1 and 9.")
 
-def comp_move():
-    return random.randint(1, 9)
+def computer_move():
+    free_fields = [x for x in board if isinstance(x, int)]
+    if not free_fields:
+        return
+    move = random.choice(free_fields)
+    board[move - 1] = computer_symbol
+    print_board(board)
 
 print_board(board)
