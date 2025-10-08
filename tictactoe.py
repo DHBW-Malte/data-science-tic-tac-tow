@@ -50,7 +50,7 @@
 # Functions we need:
 # print_board() Liam
 # check_win() Malte
-# check_draw()
+# check_draw() Malte
 # player_move() Liam
 # computer_move() Liam
 # check_valid_move() Malte
@@ -113,3 +113,5 @@ def computer_move():
     print_board(board)
 
 print_board(board)
+
+
