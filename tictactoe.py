@@ -59,7 +59,15 @@
 
 import os
 
-nestedCombinations = [[1,2,3],[4,5,6],[7,8,9],[1,4,7],[3,6,9],[1,5,9],[2,5,8],[3,5,7]]
+winningCombinations = [[1,2,3],[4,5,6],[7,8,9],[1,4,7],[3,6,9],[1,5,9],[2,5,8],[3,5,7]]
+
+def check_win():
+    for comb in winningCombinations:
+        a,b,c = combo
+        if board[a] == board[b] == board[c] and board[a] in ("X", "O"):
+            return True
+    return False
+
 
 board = [
     [1, 2, 3],
