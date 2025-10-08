@@ -51,8 +51,8 @@
 # print_board() Liam
 # check_win() Malte
 # check_draw()
-# player_move()
-# computer_move()
+# player_move() Liam
+# computer_move() Liam
 # check_valid_move()
 # reset_game()
 # player_choose_xor_o() Ehsan
