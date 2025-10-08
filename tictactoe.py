@@ -49,17 +49,9 @@
 
 import os
 
-nestedCombinations = [
-    [1,2,3],
-    [4,5,6],
-    [7,8,9],
-    [1,4,7],
-    [3,6,9],
-    [1,5,9],
-    [2,5,8],
-    [3,5,7]
-    ]
+nestedCombinations = [[1,2,3],[4,5,6],[7,8,9],[1,4,7],[3,6,9],[1,5,9],[2,5,8],[3,5,7]]
 
+# We don't need the grid map
 grid = {
     "one": [None, 1],
     "two": [None, 2],
@@ -72,6 +64,7 @@ grid = {
     "nine": [None, 9]
 }
 
+# Board array becomes an single array, with just numbers and replace them with X or O
 board = [
     [grid["one"], grid["two"], grid["three"]],
     [grid["four"], grid["five"], grid["six"]],
