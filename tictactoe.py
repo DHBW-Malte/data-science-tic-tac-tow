@@ -72,4 +72,9 @@ def print_board(board):
     rows = [' | '.join(str(cell) for cell in row) for row in board]
     print('\n---------\n'.join(rows))
 
+def player_move():
+    move = input("Your move: ")
+    print("\033[A\033[K", end="")
+    return move
+
 print_board(board)
