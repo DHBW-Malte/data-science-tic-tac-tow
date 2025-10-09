@@ -55,7 +55,7 @@
 # computer_move() Liam ✅
 # check_valid_move() Malte ✅
 # reset_game() Liam ✅
-# player_choose_xor_o() Ehsan
+# player_choose_xor_o() Ehsan ✅
 # main_game_loop() Malte ✅
 # win count for player and computer Liam ✅
 
@@ -71,12 +71,12 @@ computer_symbol = "O"
 p_win = 0
 c_win = 0
 
-def check_win():
+def check_win() -> bool:
     for comb in winning_combinations:
         a, b, c = comb
         if board[a-1] == board[b-1] == board[c-1] and board[a-1] in ("X", "O"):
-            return board[a]
-    return None
+            return True
+    return False
 
 def check_draw() -> bool:
     return all(not isinstance(x, int) for x in board)
